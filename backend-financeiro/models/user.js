@@ -6,6 +6,7 @@ const User = sequelize.define('User', {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
+        allowNull: false,
     },
     nome: {
         type: DataTypes.STRING,

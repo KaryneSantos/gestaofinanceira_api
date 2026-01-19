@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const jwt = require('jsonwebtoken');
-const secret = process.env.secret;
+const secret = process.env.JWT_SECRET;
 
 // Middleware de Autenticação
 const autheticateToken = (req, res, next) => {
@@ -21,7 +21,7 @@ const autheticateToken = (req, res, next) => {
     jwt.verify(actualToken, secret, (err, decoded) => {
         if (err) return res.status(403).json({error: 'Token inválido.'});
     
-        req.userId = decoded.userId;
+        req.user_id = decoded.id;
         next();
     });
 
