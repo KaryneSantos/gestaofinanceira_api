@@ -52,7 +52,7 @@ try {
     const user = await User.findOne({where: {email: email} });
 
     if(user) {
-        const isPasswordValid = await bcrypt.compare(password, user.senha);
+        const isPasswordValid = await bcrypt.compare(senha, user.senha);
 
         if(isPasswordValid) {
                 const token = jwt.sign({ email: user.email, id: user.id_user }, process.env.JWT_SECRET, { expiresIn: '1h' });

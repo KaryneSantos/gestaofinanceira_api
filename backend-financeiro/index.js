@@ -33,6 +33,9 @@ app.use(session({
 const userRouter = require('./routes/user');
 app.use('/users', userRouter);
 
+const authRouter = require('./routes/auth');
+app.use('/auth', authRouter);
+
 const despesasRouter = require('./routes/despesas');
 app.use('/despesas', despesasRouter);
 
